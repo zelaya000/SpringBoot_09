@@ -33,6 +33,7 @@ public class HomeController {
             return "jobform";
         }
         jobRepository.save(job);
+//        return "redirect:/";
         return "redirect:/";
     }
 }
