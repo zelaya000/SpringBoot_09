@@ -16,19 +16,19 @@ public class HomeController {
     JobRepository jobRepository;
 
     @RequestMapping("/")
-    public String listJobs(Model model) {
+    public String listJobs(Model model){
         model.addAttribute("jobs", jobRepository.findAll());
         return "list";
     }
 
     @GetMapping("/add")
-    public String jobForm(Model model) {
+    public String jobForm(Model model){
         model.addAttribute("job", new Job());
         return "jobform";
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid Job job, BindingResult result) {
+    public String processForm(@Valid Job job, BindingResult result){
         if (result.hasErrors()) {
             return "jobform";
         }
